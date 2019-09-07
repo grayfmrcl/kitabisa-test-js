@@ -1,9 +1,9 @@
-const add = (x, y) => x + y;
+const sum = (x, y) => x + y;
 
 const multiply = (x, y) => x * y;
 
 module.exports = {
-  add,
+  sum,
   multiply
 }
 
