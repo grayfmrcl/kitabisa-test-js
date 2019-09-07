@@ -13,7 +13,11 @@ describe('sum())', () => {
   it('should return the sum of the values in n', () => {
     const n = [32, 53, 72.5, 832.1232, -732];
     assert.strictEqual(sum(...n), 257.6232);
-  })
+  });
+  it('should return the sum of the values even though the value is string', () => {
+    const n = [3, '15', 42.25, '32.25', '-12.5'];
+    assert.strictEqual(sum(...n), 80);
+  });
 });
 
 describe('multiply(x, y)', () => {
