@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha index.test.js"
+    "start": "node ./index.js",
+    "test": "./node_modules/mocha/bin/_mocha *.test.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,6 @@
   "homepage": "https://github.com/grayfmrcl/kitabisa-test-js#readme",
   "devDependencies": {
     "mocha": "^6.2.0"
-  }
+  },
+  "dependencies": {}
 }
