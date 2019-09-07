@@ -1,4 +1,10 @@
-const sum = (...n) => n.reduce((prev, next) => prev + Number(next), 0);
+const x = (n, fn) => n.reduce((prev, next) => fn(prev, next), 0);
+
+const add = (x, y) => {
+  return Number(x) + Number(y);
+};
+
+const sum = (...n) => x(n, add);
 
 const multiply = (x, y) => x * y;
 
