@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const { add } = require('./index');
+const { add, multiply } = require('./index');
 
 describe('add(x, y)', () => {
   it('should return the sum of x and y', () => {
@@ -10,3 +10,12 @@ describe('add(x, y)', () => {
     assert.strictEqual(expected, result);
   });
 });
+
+describe('multiply(x, y)', () => {
+  it('should return the product of x and y', () => {
+    const x = 1, y = 2;
+    const expected = 2;
+    const result = multiply(x, y);
+    assert.strictEqual(expected, result);
+  });
+})
