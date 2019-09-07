@@ -1,4 +1,4 @@
-const sum = (x, y) => x + y;
+const sum = (...n) => n.reduce((x, y) => x + y);
 
 const multiply = (x, y) => x * y;
 
