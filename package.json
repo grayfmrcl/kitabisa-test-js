@@ -1,0 +1,28 @@
+{
+  "name": "kitabisa-test-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "./node_modules/mocha/bin/_mocha *.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grayfmrcl/kitabisa-test-js.git"
+  },
+  "keywords": [],
+  "author": "Grayfield Moningkey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grayfmrcl/kitabisa-test-js/issues"
+  },
+  "homepage": "https://github.com/grayfmrcl/kitabisa-test-js#readme",
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "vorpal": "^1.12.0"
+  }
+}
