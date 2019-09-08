@@ -1,56 +1,49 @@
-const prompts = require('prompts');
+const vorpal = require('vorpal')();
+const rl = require('readline');
+const chalk = require('chalk');
 
-const {
-  add,
-  multiply,
-  sum,
-  product
-} = require('./math');
+const { sum, product } = require('./math');
 const { firstPrimeNumbers } = require('./primes');
 const { firstFibonacciNumbers } = require('./fibonacci');
 
-function help() {
-  console.log('Commands:');
-  console.log('add <x> <y>');
-  console.log('sum <x1> <x2> ... <xn>');
-  console.log('multiply <x> <y>');
-  console.log('product <x1> <x2> ... <xn>');
-  console.log('primes <n>');
-  console.log('fibonacci <n>');
-}
-
-function run (command, params) {
-  console.log({ command, params });
-  const result = command(...params);
-  console.log(result.length > 1 ? result.join(', ') : result);
-}
-
-(function main() {
-  const args = process.argv;
-  const command = args[2];
-  const params = args.slice(3);
-  switch (command) {
-    case 'add':
-      run(add, params);
-      break;
-    case 'sum':
-      run(sum, params);
-      break;
-    case 'multiply':
-      run(multiply, params)
-      break;
-    case 'product':
-      run(product, params);
-      break;
-    case 'primes':
-      run(firstPrimeNumbers, params);
-      break;
-    case 'fibonacci':
-      run(firstFibonacciNumbers, params);
-      break;
-    default: {
-      help();
-      break;
-    };
+function run (instance, command, ...params) {
+  try {
+    const result = command(...params);
+    instance.log(chalk.green(result));
+  } catch (err) {
+    const message = chalk.red(err.message);
+    instance.log(message);
   }
-})();
+}
+
+vorpal
+  .command('sum [n...]', 'Sum of the n values')
+  .action(function(args, cb) {
+    run(this, sum, ...args.n);
+    cb();
+  });
+
+vorpal
+  .command('product [n...]', 'Product of the n values')
+  .action(function(args, cb) {
+    run(this, product, ...args.n);
+    cb();
+  })
+
+vorpal
+  .command('primes [n]', 'Find first n prime numbers')
+  .action(function(args, cb) {
+    run(this, firstPrimeNumbers, args.n);
+    cb();
+  });
+
+vorpal
+  .command('fibonacci [n]', 'Find first n fibonacci sequence')
+  .action(function(args, cb) {
+    run(this, firstFibonacciNumbers, args.n)
+    cb();
+  });
+
+vorpal
+  .delimiter('kitabisa$')
+  .show();
