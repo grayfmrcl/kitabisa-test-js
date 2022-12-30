@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/grayfmrcl/kitabisa-test-js#readme",
   "devDependencies": {
-    "mocha": "^6.2.0"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "chalk": "^2.4.2",
